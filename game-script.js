@@ -27,9 +27,23 @@ for(const img of imageNames){
       imageLoadCounter++;
       if (imageLoadCounter === imageNames.length) {
          console.log('complete loading image');
-         init();
+         startGame();
      }
    }
+}
+
+function startGame(){
+   game.isGameOver = true;
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   ctx.fillStyle = '#44abff';
+   ctx.fillRect(0, 0, canvas.width, canvas.height);
+   ctx.drawImage(game.image.dino, 240, 100, game.image.dino.width * 3, game.image.dino.height * 3);
+   
+   ctx.fillStyle = 'black';
+   ctx.font = '70px serif'
+   ctx.fillText('Start', 330, canvas.height / 2);
+   ctx.font = '30px serif';
+   ctx.fillText('press enter...', 320, 300);
 }
 
 function init(){
